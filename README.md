@@ -1,6 +1,12 @@
 # Visualizing-Novel-Characters
 An end to end NLP and CV pipeline to generate textually accurate depictions (images) of characters from Novels, Story books etc.
 
+Install packages
+1. neuralcoref
+2. transformers
+3. spacy
+4. spacy (en)
+5. stanza
 
 1. Clone this repo.
 2. If you want to use a new book
