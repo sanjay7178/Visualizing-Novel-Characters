@@ -97,10 +97,15 @@ for char_desc in os.listdir(path_to_book_desc):
 # Text-to-Image Generation
 print("Begin Text-to-Image Generation")
 
-# Generate 5 images from runwayml
-for i in range(5):
-    runway_pipe(prompt).images[0].save(f"results/runawayml{i}.png")
+for summary in os.listdir(path_to_book_summary):
+    with open(os.path.join(path_to_book_summary, summary), 'r', encoding='utf-8') as file:
+        # Read the contents of the file
+        prompt = file.read()
 
-# Generate 5 images from stability ai
-for i in range(5):
-    pipe(prompt).images[0].save(f"results/stabilityAI{i}.png")
+    # Generate 5 images from runwayml
+    for i in range(5):
+        runway_pipe(prompt).images[0].save(f"results/runawayml{i}.png")
+
+    # Generate 5 images from stability ai
+    for i in range(5):
+        pipe(prompt).images[0].save(f"results/stabilityAI{i}.png")
