@@ -17,7 +17,7 @@ model_id = "stabilityai/stable-diffusion-2-1"
 stability_pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
 
 # Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
-stability_pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
+stability_pipe.scheduler = DPMSolverMultistepScheduler.from_config(stability_pipe.scheduler.config)
 stability_pipe = stability_pipe.to("cuda")
 
 for i in range(5):
