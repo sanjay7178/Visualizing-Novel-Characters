@@ -15,13 +15,13 @@ import nltk
 # That book must contain the character list of that book. For that, run character_list.py.
 
 # Path to all characters JSON w.r.t book/novel/story/poem
-path_to_chars = "/home/kambhamettu.s/Visualizing Novel Characters/character_contents.json"
+path_to_chars = "character_contents.json"
 # Set the desired book's path
-path_to_book = "/home/kambhamettu.s/Visualizing Novel Characters/new_books/Gulliver's Travels.txt"
+path_to_book = "new_books/Gulliver's Travels.txt"
 # Set the path to save all characters of a book's json
-path_to_book_desc= "/home/kambhamettu.s/Visualizing Novel Characters/book_descs"
+path_to_book_desc= "book_descs"
 # The path to all summaries
-path_to_book_summary = "/home/kambhamettu.s/Visualizing Novel Characters/book_summaries"
+path_to_book_summary = "book_summaries"
 
 # Read the book
 with open(path_to_book, 'r', encoding='utf-8') as file:
