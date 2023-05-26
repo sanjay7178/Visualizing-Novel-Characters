@@ -1,9 +1,12 @@
 # Visualizing-Novel-Characters
 An end to end NLP and CV pipeline to generate textually accurate depictions (images) of characters from Novels, Story books etc.
+<br>
+# Try Out on Google Colab
 <div>
     <a href="https://colab.research.google.com/drive/1HtJoW2feLOE-MQ8f5Gxjq1G07bvm88jM?usp=sharing"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab">
 </div>
-
+<br>
+    
 Install packages
 1. neuralcoref
 2. transformers
