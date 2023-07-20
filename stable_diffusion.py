@@ -7,18 +7,31 @@ model_id = "runwayml/stable-diffusion-v1-5"
 runway_pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
 runway_pipe = runway_pipe.to("cuda")
 
+
+# for i in range(5):
+#     runway_pipe(prompt).images[0].save(f"results/runawayml{i}.png")
+
+# # ______________________________________________________________________________
+
+
+# model_id = "stabilityai/stable-diffusion-2-1"
+# stability_pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+
+# # Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
+# stability_pipe.scheduler = DPMSolverMultistepScheduler.from_config(stability_pipe.scheduler.config)
+# stability_pipe = stability_pipe.to("cuda")
+
+# for i in range(5):
+#     stability_pipe(prompt).images[0].save(f"results/stabilityAI{i}.png")
+
+from diffusers.models import AutoencoderKL
+from diffusers import StableDiffusionPipeline
+
+model = "CompVis/stable-diffusion-v1-4"
+vae = AutoencoderKL.from_pretrained("stabilityai/sd-vae-ft-mse")
+pipe = StableDiffusionPipeline.from_pretrained(model, vae=vae)
+pipe =  pipe.to("cuda")
+
+
 for i in range(5):
-    runway_pipe(prompt).images[0].save(f"results/runawayml{i}.png")
-
-# ______________________________________________________________________________
-
-
-model_id = "stabilityai/stable-diffusion-2-1"
-stability_pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
-
-# Use the DPMSolverMultistepScheduler (DPM-Solver++) scheduler here instead
-stability_pipe.scheduler = DPMSolverMultistepScheduler.from_config(stability_pipe.scheduler.config)
-stability_pipe = stability_pipe.to("cuda")
-
-for i in range(5):
-    stability_pipe(prompt).images[0].save(f"results/stabilityAI{i}.png")
+    pipe(prompt).images[0].save(f"results/sd-vae{i}.png")
